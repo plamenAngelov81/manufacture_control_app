@@ -1,0 +1,11 @@
+{% extends 'base/base.html' %}
+{% block page_content %}
+    <a href="{% url 'create machine' %}">Create New Machine</a>
+    <ul role="list">
+        {% for machine in object_list %}
+            <li>
+                <a href="{% url 'machine details' pk=machine.pk %}">{{ machine.machine_name }}</a>
+            </li>
+    {% endfor %}
+    </ul>
+{% endblock %}

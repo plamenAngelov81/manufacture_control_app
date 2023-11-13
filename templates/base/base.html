@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base_css/base_css.css' %}">
+    <title>Manufacture Control</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <a class="header_a" href="{% url 'index' %}">Company Logo</a>
+
+            <ul role="list" class="control">
+                <li><a class="company_a" href="{% url 'get machines' %}">Machines</a></li>
+                <li><a class="company_a" href="#">Tools</a></li>
+                <li><a class="company_a" href="#">Operations</a></li>
+                <li><a class="company_a" href="#">Parts Order</a></li>
+            </ul>
+
+            <ul role="list" class="user">
+                <li>User Profile</li>
+                <li>Log In</li>
+                <li>Register</li>
+                <li>Log Out</li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {% block page_content %}
+
+        {% endblock %}
+    </main>
+</body>
+</html>

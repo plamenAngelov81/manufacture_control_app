@@ -1,0 +1,8 @@
+{% extends 'base/base.html' %}
+{% block page_content %}
+    <form method="post" action="{% url 'machine edit' pk=machine.pk %}">
+        {{ form.as_div }}
+        {% csrf_token %}
+        <button>Edit</button>
+    </form>
+{% endblock %}

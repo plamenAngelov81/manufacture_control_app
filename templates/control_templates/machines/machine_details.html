@@ -1,0 +1,14 @@
+{% extends 'base/base.html' %}
+{% block page_content %}
+    <section>
+        <ul role="list">
+            <li>Name: {{ object.machine_name }}</li>
+            <li>Number of Tools: {{ object.number_of_tools }}</li>
+            <li>Description: {{ object.description }}</li>
+            <li>
+                <a href="{% url 'machine edit' pk=object.pk %}">Edit</a>
+            </li>
+        </ul>
+    </section>
+
+{% endblock %}
