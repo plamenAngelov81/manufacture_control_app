@@ -1,0 +1,11 @@
+{% extends 'base/base.html' %}
+{% block page_content %}
+    <a href="{% url 'create tool' %}">Create New Tool</a>
+    <ul role="list">
+        {% for tool in object_list %}
+            <li>
+                <a href="{% url 'tool details' pk=tool.pk %}">{{ tool.tool_name }}</a>
+            </li>
+    {% endfor %}
+    </ul>
+{% endblock %}
