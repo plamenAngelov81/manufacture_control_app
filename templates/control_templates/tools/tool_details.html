@@ -1,0 +1,16 @@
+{% extends 'base/base.html' %}
+{% block page_content %}
+    <h1>Tool details</h1>
+    <ul role="list">
+        <li>Name: {{ object.tool_name }}</li>
+        <li>Length: {{ object.tool_length }}</li>
+        <li>Diameter: {{ object.tool_diameter }}</li>
+        {% if object.machine %}
+            <li>Machine: {{ object.machine }}</li>
+        {% endif %}
+        {% if object.operation %}
+            <li>Operation: {{ object.operation }}</li>
+        {% endif %}
+    </ul>
+    <a class="tool-edit" href="{% url 'tool edit' pk=object.pk %}">Edit</a>
+{% endblock %}

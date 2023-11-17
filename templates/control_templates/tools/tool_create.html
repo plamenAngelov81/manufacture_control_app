@@ -1,0 +1,9 @@
+{% extends 'base/base.html' %}
+{% block page_content %}
+    <h1>Tool Create</h1>
+    <form method="post" action="{% url 'create tool' %}">
+        {{ form.as_div }}
+        {% csrf_token %}
+        <button>Create</button>
+    </form>
+{% endblock %}

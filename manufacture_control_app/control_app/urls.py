@@ -14,7 +14,7 @@ urlpatterns = [
     path('tools/', include([
         path('', GetToolsView.as_view(), name='get tools'),
         path('create/', ToolCreateView.as_view(), name='create tool'),
-        path('<int:pk>/machine-details', ToolDetailsView.as_view(), name='tool details'),
-        path('<int:pk>/machine-edit', ToolEditView.as_view(), name='tool edit'),
+        path('<int:pk>/tool-details', ToolDetailsView.as_view(), name='tool details'),
+        path('<int:pk>/tool-edit', ToolEditView.as_view(), name='tool edit'),
     ]))
 ]

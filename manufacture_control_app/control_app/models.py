@@ -29,6 +29,12 @@ class Machine(models.Model):
         blank=True,
     )
 
+    class Meta:
+        verbose_name_plural = 'Machines'
+
+    def __str__(self):
+        return self.machine_name
+
 
 class Operations(models.Model):
     OPERATION_NAME_MAX_LEN = 30
@@ -58,6 +64,9 @@ class Operations(models.Model):
 
     class Meta:
         verbose_name_plural = 'Operations'
+
+    def __str__(self):
+        return self.operation_name
 
 
 class Tool(models.Model):
@@ -99,3 +108,9 @@ class Tool(models.Model):
         null=True,
         blank=True,
     )
+    
+    class Meta:
+        verbose_name_plural = 'Tools'
+
+    def __str__(self):
+        return self.tool_name

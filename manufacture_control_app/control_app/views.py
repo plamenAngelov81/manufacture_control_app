@@ -47,7 +47,7 @@ class ToolCreateView(generic.CreateView):
     model = Tool
     form_class = ToolCreateForm
     template_name = 'control_templates/tools/tool_create.html'
-    success_url = reverse_lazy('get machines')
+    success_url = reverse_lazy('get tools')
 
 
 class ToolDetailsView(generic.DetailView):

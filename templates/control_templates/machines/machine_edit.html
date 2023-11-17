@@ -1,5 +1,6 @@
 {% extends 'base/base.html' %}
 {% block page_content %}
+    <h1>Edit {{ object.machine_name }}</h1>
     <form method="post" action="{% url 'machine edit' pk=machine.pk %}">
         {{ form.as_div }}
         {% csrf_token %}

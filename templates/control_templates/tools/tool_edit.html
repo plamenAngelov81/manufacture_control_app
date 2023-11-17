@@ -1,0 +1,9 @@
+{% extends 'base/base.html' %}
+{% block page_content %}
+    <h1>Edit {{ object.tool_name }}</h1>
+    <form method="post" action="{% url 'tool edit' pk=object.pk %}">
+        {{ form.as_div }}
+        {% csrf_token %}
+        <button>Edit</button>
+    </form>
+{% endblock %}
