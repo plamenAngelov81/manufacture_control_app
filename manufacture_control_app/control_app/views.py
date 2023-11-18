@@ -26,6 +26,12 @@ class MachineDetailsView(generic.DetailView):
     model = Machine
     template_name = 'control_templates/machines/machine_details.html'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        tools = Tool.objects.filter(machine_id=self.object.pk)
+        context["tools"] = tools
+        return context
+
 
 class MachineEditView(generic.UpdateView):
     model = Machine

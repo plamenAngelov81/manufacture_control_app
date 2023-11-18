@@ -1,6 +1,7 @@
 {% extends 'base/base.html' %}
 {% block page_content %}
     <section>
+        <h2>{{ object.machine_name }} Details</h2>
         <ul role="list">
             <li>Name: {{ object.machine_name }}</li>
             <li>Number of Tools: {{ object.number_of_tools }}</li>
@@ -9,6 +10,15 @@
                 <a href="{% url 'machine edit' pk=object.pk %}">Edit</a>
             </li>
         </ul>
+        <div>
+            <h2>Attached tools:</h2>
+
+            <ul role="list">
+                {% for tool in tools %}
+                    <li><a href="{% url 'tool details' pk=tool.pk %}">{{ tool.tool_name }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
     </section>
 
 {% endblock %}
