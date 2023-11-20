@@ -1,7 +1,8 @@
 from django.urls import path, include
 
 from manufacture_control_app.control_app.views import index, MachineCreateView, GetMachinesView, MachineDetailsView, \
-    MachineEditView, GetToolsView, ToolCreateView, ToolDetailsView, ToolEditView
+    MachineEditView, GetToolsView, ToolCreateView, ToolDetailsView, ToolEditView, GetOperationView, \
+    OperationCreateView, OperationDetailsView, OperationEditView
 
 urlpatterns = [
     path('', index, name='index'),
@@ -16,5 +17,11 @@ urlpatterns = [
         path('create/', ToolCreateView.as_view(), name='create tool'),
         path('<int:pk>/tool-details', ToolDetailsView.as_view(), name='tool details'),
         path('<int:pk>/tool-edit', ToolEditView.as_view(), name='tool edit'),
-    ]))
+    ])),
+    path('operations/', include([
+        path('', GetOperationView.as_view(), name='get operations'),
+        path('create/', OperationCreateView.as_view(), name='create operation'),
+        path('<int:pk>/tool-details', OperationDetailsView.as_view(), name='operation details'),
+        path('<int:pk>/tool-edit', OperationEditView.as_view(), name='operation edit'),
+    ])),
 ]

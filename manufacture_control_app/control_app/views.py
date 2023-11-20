@@ -2,8 +2,9 @@ from django.shortcuts import render
 
 from django.views import generic
 from django.urls import reverse_lazy
-from manufacture_control_app.control_app.forms import MachineCreateForm, MachineEditForm, ToolCreateForm, ToolEditForm
-from manufacture_control_app.control_app.models import Machine, Tool
+from manufacture_control_app.control_app.forms import MachineCreateForm, MachineEditForm, ToolCreateForm, ToolEditForm, \
+    OperationCreateForm, OperationEditForm
+from manufacture_control_app.control_app.models import Machine, Tool, Operations
 
 
 def index(request):
@@ -68,5 +69,39 @@ class ToolEditView(generic.UpdateView):
 
     def get_success_url(self):
         return reverse_lazy('tool details', kwargs={
+            'pk': self.object.pk
+        })
+
+
+class GetOperationView(generic.ListView):
+    model = Operations
+    template_name = 'control_templates/operations/get_operation.html'
+
+
+class OperationCreateView(generic.CreateView):
+    model = Operations
+    form_class = OperationCreateForm
+    template_name = 'control_templates/operations/operation_create.html'
+    success_url = reverse_lazy('get operations')
+
+
+class OperationDetailsView(generic.DetailView):
+    model = Operations
+    template_name = 'control_templates/operations/operation_details.html'
+
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     tools = Tool.objects.filter(machine_id=self.object.pk)
+    #     context["tools"] = tools
+    #     return context
+
+
+class OperationEditView(generic.UpdateView):
+    model = Operations
+    form_class = OperationEditForm
+    template_name = 'control_templates/operations/operation_edit.html'
+
+    def get_success_url(self):
+        return reverse_lazy('operation details', kwargs={
             'pk': self.object.pk
         })

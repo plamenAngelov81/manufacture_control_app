@@ -1,6 +1,6 @@
 from django import forms
 
-from manufacture_control_app.control_app.models import Machine, Tool
+from manufacture_control_app.control_app.models import Machine, Tool, Operations
 
 
 class MachineCreateForm(forms.ModelForm):
@@ -45,3 +45,15 @@ class ToolEditForm(forms.ModelForm):
             'operation',
             'machine',
         ]
+
+
+class OperationCreateForm(forms.ModelForm):
+    class Meta:
+        model = Operations
+        fields = '__all__'
+
+
+class OperationEditForm(forms.ModelForm):
+    class Meta:
+        model = Operations
+        fields = '__all__'
