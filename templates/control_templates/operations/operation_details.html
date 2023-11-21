@@ -1,0 +1,12 @@
+{% extends 'base/base.html' %}
+{% block page_content %}
+    <section>
+        <h2>{{ object.operation_name }} Details</h2>
+        <ul role="list">
+            <li>Name: {{ object.operation_name }}</li>
+            <li>ID: {{ object.operation_id }}</li>
+            <li>Description: {{ object.operation_description }}</li>
+        </ul>
+        <a class="operation-details" href="{% url 'operation edit' pk=object.pk %}">Edit {{ object.operation_name }}</a>
+    </section>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base/base.html' %}
+{% block page_content %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/operation_css/get_operation.css' %}">
+    <section class="get-operations">
+        <h2>List Operations</h2>
+        <a class="operation-create" href="{% url 'create operation' %}">Create Operation</a>
+        <ul role="list">
+            {% for object in object_list %}
+                <li><a class="operation"
+                       href="{% url 'operation details' pk=object.pk %}">{{ object.operation_name }}</a></li>
+            {% endfor %}
+        </ul>
+    </section>
+{% endblock %}

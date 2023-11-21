@@ -1,0 +1,11 @@
+{% extends 'base/base.html' %}
+{% block page_content %}
+    <section>
+        <h2>{{ object.operation_name }} Edit</h2>
+        <form method="post" action="{% url 'operation edit' pk=object.pk %}">
+            {{ form.as_div }}
+            {% csrf_token %}
+            <button>Edit</button>
+        </form>
+    </section>
+{% endblock %}

@@ -2,8 +2,8 @@ from django.shortcuts import render
 
 from django.views import generic
 from django.urls import reverse_lazy
-from manufacture_control_app.control_app.forms import MachineCreateForm, MachineEditForm, ToolCreateForm, ToolEditForm, \
-    OperationCreateForm, OperationEditForm
+from manufacture_control_app.control_app.forms import MachineCreateForm, MachineEditForm, ToolCreateForm, \
+    ToolEditForm, OperationCreateForm, OperationEditForm
 from manufacture_control_app.control_app.models import Machine, Tool, Operations
 
 
@@ -88,12 +88,6 @@ class OperationCreateView(generic.CreateView):
 class OperationDetailsView(generic.DetailView):
     model = Operations
     template_name = 'control_templates/operations/operation_details.html'
-
-    # def get_context_data(self, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     tools = Tool.objects.filter(machine_id=self.object.pk)
-    #     context["tools"] = tools
-    #     return context
 
 
 class OperationEditView(generic.UpdateView):
