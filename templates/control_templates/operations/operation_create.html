@@ -1,9 +1,11 @@
 {% extends 'base/base.html' %}
 {% block page_content %}
-    <h2>Create Operation</h2>
-    <form method="post" action="{% url 'create operation' %}">
-        {{ form.as_div }}
-        {% csrf_token %}
-        <button>Create</button>
-    </form>
+    <section>
+        <h2>Create Operation</h2>
+        <form method="post" action="{% url 'create operation' %}">
+            {{ form.as_div }}
+            {% csrf_token %}
+            <button>Create</button>
+        </form>
+    </section>
 {% endblock %}

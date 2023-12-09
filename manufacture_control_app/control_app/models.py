@@ -2,6 +2,38 @@ from django.db import models
 from django.core.validators import MinLengthValidator, MinValueValidator
 
 
+class OrderParts(models.Model):
+    ORDER_NUM_MAX_LEN = 50
+    ORDER_NUM_MIN_LEN = 5
+    ITEM_NUM_MAX_LEN = 50
+    ITEM_NUM_MIN_LEN = 5
+    PART_NAME_MAX_LEN = 50
+    PART_NAME_MIN_LEN = 5
+
+    order_number = models.CharField(
+        verbose_name='Order Number',
+        max_length=ORDER_NUM_MAX_LEN,
+        validators=[MinLengthValidator(ORDER_NUM_MIN_LEN)],
+        null=False,
+        blank=False,
+    )
+
+    item_number = models.CharField(
+        verbose_name='Item Number',
+        max_length=ITEM_NUM_MAX_LEN,
+        validators=[MinLengthValidator(ITEM_NUM_MIN_LEN)],
+        null=False,
+        blank=False,
+    )
+    part_name = models.CharField(
+        verbose_name='Part Name',
+        max_length=PART_NAME_MAX_LEN,
+        validators=[MinLengthValidator(PART_NAME_MIN_LEN)],
+        null=False,
+        blank=False,
+    )
+
+
 class Machine(models.Model):
     MACHINE_NAME_MAX_LEN = 30
     MACHINE_NAME_MIN_LEN = 5
@@ -60,6 +92,14 @@ class Operations(models.Model):
         validators=[MinLengthValidator(OPERATION_DESCRIPTION_MIN_LEN)],
         null=False,
         blank=False,
+    )
+
+    part_order = models.ForeignKey(
+        OrderParts,
+        on_delete=models.CASCADE,
+        verbose_name='Part Order',
+        null=True,
+        blank=True,
     )
 
     class Meta:
