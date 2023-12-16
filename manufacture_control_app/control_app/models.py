@@ -33,6 +33,12 @@ class OrderParts(models.Model):
         blank=False,
     )
 
+    part_quantity = models.PositiveIntegerField(
+        verbose_name='Quantity',
+        null=True,
+        blank=True,
+    )
+
 
 class Machine(models.Model):
     MACHINE_NAME_MAX_LEN = 30
@@ -84,6 +90,7 @@ class Operations(models.Model):
 
     operation_id = models.PositiveIntegerField(
         verbose_name='Id',
+        unique=True,
     )
 
     operation_description = models.TextField(
