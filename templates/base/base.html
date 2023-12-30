@@ -20,12 +20,15 @@
                 <li><a class="company_a" href="#">Parts Order</a></li>
             </ul>
 
-            <ul role="list" class="user">
-                <li>User Profile</li>
-                <li>Log In</li>
-                <li>Register</li>
-                <li>Log Out</li>
-            </ul>
+            <ul class="user" role="list">
+            {% if request.user.is_authenticated %}
+                <li class="last_li"><a class="company_a" href="{% url 'account details' pk=request.user.pk %}">{{ user.username }}</a></li>
+                <li class="last_li"><a class="company_a" href="{% url 'account logout' %}">Log Out</a></li>
+            {% else %}
+                <li class="last_li"><a class="company_a" href="{% url 'account login' %}">Sign In</a></li>
+                <li class="last_li"><a class="company_a" href="{% url 'account register' %}">Register</a></li>
+            {% endif %}
+        </ul>
         </nav>
     </header>
     <main>

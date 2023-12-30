@@ -9,7 +9,7 @@ class CreateProfileForm(UserCreationForm):
 
     class Meta:
         model = UserModel
-        fields = ['username', 'email', 'first_name', 'last_name']
+        fields = ['email', 'first_name', 'last_name', 'user_id', 'username']
         field_classes = {
             'username': UsernameField
         }
@@ -27,3 +27,9 @@ class CreateProfileForm(UserCreationForm):
                 'placeholder': 'Enter last name',
             }),
         }
+
+
+class EmployeeEditForm(forms.ModelForm):
+    class Meta:
+        model = UserModel
+        fields = ['user_id', 'username', 'first_name', 'last_name', 'email']

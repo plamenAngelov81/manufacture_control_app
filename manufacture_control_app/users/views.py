@@ -6,7 +6,7 @@ from django.contrib.auth.views import LoginView, LogoutView, PasswordChangeView,
 from django.urls import reverse_lazy
 from django.views import generic
 
-from manufacture_control_app.users.forms import CreateProfileForm
+from manufacture_control_app.users.forms import CreateProfileForm, EmployeeEditForm
 
 UserModel = get_user_model()
 
@@ -37,12 +37,8 @@ class AccountDetailsView(generic.DetailView):
 
 class AccountEditView(generic.UpdateView):
     model = UserModel
+    form_class = EmployeeEditForm
     template_name = 'user_profile/account_edit.html'
-    fields = ['username',
-              'first_name',
-              'last_name',
-              'email'
-              ]
 
     def get_success_url(self):
         return reverse_lazy('account details', kwargs={'pk': self.request.user.pk})

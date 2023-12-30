@@ -15,12 +15,21 @@ class Employee(AbstractUser):
     LAST_NAME_MIN_LEN = 3
 
     user_id = models.CharField(
-        verbose_name='Username',
+        verbose_name='Employee ID',
         max_length=USER_NAME_MAX_LEN,
         null=False,
         blank=False,
         validators=[MinLengthValidator(USER_NAME_MIN_LEN)],
         unique=True
+    )
+
+    username = models.CharField(
+        verbose_name='Username',
+        null=True,
+        blank=True,
+        max_length=30,
+        validators=[MinLengthValidator(3)],
+        unique=True,
     )
 
     first_name = models.CharField(

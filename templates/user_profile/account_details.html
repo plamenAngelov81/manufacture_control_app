@@ -1,0 +1,14 @@
+{% extends 'base/base.html' %}
+{% block page_content %}
+    <section>
+        <h2>{{ user.first_name }} {{ user.last_name }} Details</h2>
+        <ul role="list">
+            <li>Employee name: {{ user.first_name }} {{ user.last_name }}</li>
+            <li>Employee ID: {{ user.user_id }}</li>
+            <li>Employee Username: {{ user.username }}</li>
+        </ul>
+        <div>
+            <a href="{% url 'account edit' pk=user.pk %}">Edit Profile</a>
+        </div>
+    </section>
+{% endblock %}
