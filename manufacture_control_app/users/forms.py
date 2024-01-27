@@ -26,6 +26,9 @@ class CreateProfileForm(UserCreationForm):
             'last_name': forms.TextInput(attrs={
                 'placeholder': 'Enter last name',
             }),
+            'user_id': forms.TextInput(attrs={
+                'placeholder': 'Enter your ID',
+            }),
         }
 
 

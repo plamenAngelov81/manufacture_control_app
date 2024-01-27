@@ -69,6 +69,7 @@ class Machine(models.Model):
 
     class Meta:
         verbose_name_plural = 'Machines'
+        ordering = ['pk']
 
     def __str__(self):
         return self.machine_name

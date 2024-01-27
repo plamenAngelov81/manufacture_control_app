@@ -1,8 +1,10 @@
 {% extends 'base/base.html' %}
 {% block page_content %}
-    <section>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/employee_css/employee_register.css' %}">
+    <section class="register-section">
         <h2>Register</h2>
-        <form method="post" action="{% url 'account register' %}">
+        <form class="register-form" method="post" action="{% url 'account register' %}">
             {{ form.as_div }}
             {% csrf_token %}
             <button>Register</button>

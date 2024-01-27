@@ -1,6 +1,5 @@
-
-.log-in-section {
-    margin-top: 200px;
+.register-section {
+    margin-top: 40px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -12,18 +11,18 @@
     box-shadow: rgba(0, 0, 0, 0.8) 0 5px 15px;
 }
 
-.log-in-form {
+.register-form {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 14px;
 }
 
-.log-in-form div {
+.register-form div {
     display: flex;
     flex-direction: column;
 }
 
-.log-in-form button {
+.register-form button {
     margin-top: 10px;
     padding: 6px 1px;
     background-color: #015201;
@@ -32,7 +31,7 @@
     color: white;
 }
 
-.log-in-form button:hover {
+.register-form button:hover {
     background-color: green;
 }
 
@@ -45,3 +44,11 @@ input {
     border: 1px solid black;
     padding: 4px;
 }
+
+.register-form div .helptext {
+    font-size: 14px;
+}
+
+/*.register-form div .helptext ul {*/
+/*    list-style: none;*/
+/*}*/
